@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/27 03:15:46 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/27 16:05:15 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ typedef struct s_mlx{
 	void	*ptr;
 	void	*win;
 }	t_mlx;
+
+typedef struct s_player{
+	int	pos_x;
+	int	pos_y;
+}	t_player;
 
 // prototypes
 
