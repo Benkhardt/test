@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   world_init.c                                       :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 11:25:57 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:17:56 by dbenkhar         ###   ########.fr       */
+/*   Created: 2022/01/30 14:21:34 by dbenkhar          #+#    #+#             */
+/*   Updated: 2022/01/30 14:31:53 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// static t_mlx	*build_map(t_mlx *data)
-// {
-
-// }
-
-t_all	*world_init(t_all *data)
+void	free_list(t_map *top_list)
 {
-	data->mlx->ptr = mlx_init();
-	if (data->mlx->ptr == NULL)
+	t_map	*temp;
+
+	temp = top_list->bot;
+	while (top_list != NULL)
 	{
-		free(data->mlx->ptr);
-		return (NULL);
+		free(top_list->line_x);
+		free(top_list);
+		top_list = temp;
+		if (top_list != NULL)
+			temp = top_list->bot;
 	}
-	data->mlx->win = mlx_new_window(data->mlx->ptr, (data->mlx->x - 1) * 63, data->mlx->y * 63, WIN_TITLE);
-	if (data->mlx->win == NULL)
-	{
-		free(data->mlx->win);
-		return (NULL);
-	}
-	// data = build_map(data);
-	return (data);
+}
+
+void	free_all(t_all *data)
+{
+	free_list(data->top_list);
+	free(data->mlx);
+	free(data);
 }

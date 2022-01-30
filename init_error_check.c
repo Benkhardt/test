@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_check.c                                      :+:      :+:    :+:   */
+/*   init_error_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 12:09:49 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 14:48:13 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+t_all	*init_types(t_all *data)
+{
+	data = malloc(sizeof(t_all));
+	if (data == NULL)
+		return (NULL);
+	data->mlx = malloc(sizeof(t_mlx));
+	if (data->mlx == NULL)
+	{
+		free(data);
+		return (NULL);
+	}
+	data->top_list = NULL;
+	return (data);
+}
 
 static int	check_y(char *build, char *allowed)
 {
@@ -25,29 +40,29 @@ static int	check_y(char *build, char *allowed)
 	return (0);
 }
 
-static t_mlx	*check_map(t_mlx *data, int fd)
+static t_all	*check_map(t_all *data, int fd)
 {
 	char	*build;
 
-	data->y = 0;
+	data->mlx->y = 0;
 	build = get_next_line(fd);
 	if (build == NULL)
 	{
 		free(data);
 		return (NULL);
 	}
-	data->x = ft_strlen(build);
+	data->mlx->x = ft_strlen(build);
 	while (build != NULL)
 	{
-		if (data->x != (int)ft_strlen(build) || check_y(build, "01PCE", data->y))
+		if (data->mlx->x != (int)ft_strlen(build) || check_y(build, "01PCE"))
 		{
 			free(data);
 			free(build);
 			return (NULL);
 		}
-		free(build);
+		data->top_list = create_elem_ontop(build, data->top_list, data->mlx->y);
 		build = get_next_line(fd);
-		data->y++;
+		data->mlx->y++;
 	}
 	return (data);
 }
@@ -58,19 +73,16 @@ static t_mlx	*check_map(t_mlx *data, int fd)
 //	Return:
 //	Returns t_mlx *data with size of map.
 //	NULL if any error appears.
-t_mlx	*error_check(int argc, char **argv)
+t_all	*init_error_check(char **argv)
 {
 	int		fd;
-	t_mlx	*data;
+	t_all	*data;
 
-	if (argc != 2)
-		return (NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	data = malloc(sizeof(t_mlx));
-	if (data == NULL)
-		return (NULL);
+	data = NULL;
+	data = init_types(data);
 	data = check_map(data, fd);
 	if (data == NULL)
 		return (NULL);
