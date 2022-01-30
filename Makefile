@@ -6,13 +6,14 @@
 #    By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 12:04:48 by dbenkhar          #+#    #+#              #
-#    Updated: 2022/01/26 22:49:26 by dbenkhar         ###   ########.fr        #
+#    Updated: 2022/01/29 11:35:55 by dbenkhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 
-SRC= so_long.c \
+SRC= so_long.c error_check.c world_init.c \
+	
 
 LIBDIR= ./libft
 LIBFT= libft/libft.a
