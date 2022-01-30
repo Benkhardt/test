@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 15:21:18 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:52:43 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,7 @@ void	free_list(t_map *top_list);
 void	printlist(t_map *bot);
 
 t_map	*find_last_elem(t_map *top);
+
+int		check_validmap(t_map *bot);
 
 #endif
