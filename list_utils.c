@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 12:34:13 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 15:52:06 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:54:12 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,6 @@ void	printlist(t_map *bot)
 		ft_putchar_fd('\n', 1);
 		bot = bot->top;
 	}
-}
-
-//	Description:
-//	checking either the map is valid or not.
-//	Return:
-//	Returning int 1 if valid 0 if not.
-int	check_validmap(t_map *bot)
-{
-	int		i;
-	t_map	*temp;
-	char	*line;
-
-	temp = bot;
-	i = 0;
-	if (bot != NULL)
-		line = (char *)bot->line_x;
-	
 }
 
 // t_map	*init_map(int argc, char **argv, t_map *stack)
