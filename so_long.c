@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:55:40 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:48:30 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:25:34 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ int	main(int argc, char **argv)
 	// 	ft_putstr_fd("Error\n", 1);
 	// 	return (-1);
 	// }
+	data->bot_list = find_last_elem(data->top_list);
+	// ft_putnbr_fd(data->bot_list->y, 1);
+	// ft_putchar_fd('\n', 1);
+	printlist(data->bot_list);
 	data = world_init(data);
 	if (data == NULL)
 	{

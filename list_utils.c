@@ -6,11 +6,23 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 12:34:13 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 13:21:20 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:29:58 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+//	Descritpion:
+//	Finding the most bottom element of map list.
+//	Return:
+//	Returning a t_map * to the most bottom element
+//	of map list.
+t_map	*find_last_elem(t_map *top)
+{
+	while (top->bot != NULL)
+		top = top->bot;
+	return (top);
+}
 
 //	Description:
 //	creating a dqueued linked list, every elem containing
@@ -25,12 +37,28 @@ t_map	*create_elem_ontop(void *str, t_map *top, int y)
 	rtn = malloc(sizeof(t_map));
 	if (rtn == NULL)
 		return (NULL);
+	if (top != NULL)
+		top->top = rtn;
 	rtn->line_x = str;
 	rtn->y = y;
 	rtn->bot = top;
 	rtn->top = NULL;
 	rtn->valid = -1;
 	return (rtn);
+}
+
+//	Description:
+//	Prints out values of map list
+//	Return: VOID
+void	printlist(t_map *bot)
+{
+	while (bot != NULL)
+	{
+		ft_putstr_fd((char *)bot->line_x, 1);
+		ft_putnbr_fd(bot->y, 1);
+		ft_putchar_fd('\n', 1);
+		bot = bot->top;
+	}
 }
 
 // t_map	*init_map(int argc, char **argv, t_map *stack)

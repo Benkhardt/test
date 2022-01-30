@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:48:05 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:21:18 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 // all
 typedef struct s_all{
 	struct s_map	*top_list;
+	struct s_map	*bot_list;
 	struct s_mlx	*mlx;
 	// struct s_player	*player;
 }	t_all;
@@ -78,5 +79,9 @@ t_map	*create_elem_ontop(void *str, t_map *top, int y);
 void	free_all(t_all *data);
 
 void	free_list(t_map *top_list);
+
+void	printlist(t_map *bot);
+
+t_map	*find_last_elem(t_map *top);
 
 #endif
