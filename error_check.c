@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 11:14:01 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 12:09:49 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_mlx	*check_map(t_mlx *data, int fd)
 	data->x = ft_strlen(build);
 	while (build != NULL)
 	{
-		if (data->x != (int)ft_strlen(build) || check_y(build, "01PCE"))
+		if (data->x != (int)ft_strlen(build) || check_y(build, "01PCE", data->y))
 		{
 			free(data);
 			free(build);

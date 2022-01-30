@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/29 11:32:21 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 12:12:07 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,21 @@
 
 // typedefs
 
+typedef struct s_map{
+	struct s_map	*top;
+	void			*line_x;
+	int				x;
+	int				y;
+	struct s_map	*bot;
+}	t_map;
+
 typedef struct s_mlx{
-	int		x;
-	int		y;
-	// int		error;
-	void	*ptr;
-	void	*win;
+	int				x;
+	int				y;
+	void			*ptr;
+	void			*win;
+	struct s_map	*top_list;
+	struct s_map	*bot_list;
 }	t_mlx;
 
 typedef struct s_player{
