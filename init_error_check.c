@@ -6,11 +6,24 @@
 /*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:48:13 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:45:06 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// int	check_validmap(t_map *bot)
+// {
+// 	int		i;
+// 	t_map	*temp;
+// 	char	*line;
+
+// 	temp = bot;
+// 	i = 0;
+// 	if (bot != NULL)
+// 		line = (char *)bot->line_x;
+	
+// }
 
 t_all	*init_types(t_all *data)
 {
