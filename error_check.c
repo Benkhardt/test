@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/29 11:56:11 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 06:30:03 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ static t_mlx	*check_map(t_mlx *data, int fd)
 		build = get_next_line(fd);
 		data->y++;
 	}
+	ft_putstr_fd("value y: ", 1);
+	ft_putnbr_fd(data->y, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("value x: ", 1);
+	ft_putnbr_fd(data->x, 1);
+	ft_putchar_fd('\n', 1);
 	return (data);
 }
 
