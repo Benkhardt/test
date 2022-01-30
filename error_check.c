@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 06:30:03 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/01/30 11:14:01 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,6 @@ static t_mlx	*check_map(t_mlx *data, int fd)
 		build = get_next_line(fd);
 		data->y++;
 	}
-	ft_putstr_fd("value y: ", 1);
-	ft_putnbr_fd(data->y, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("value x: ", 1);
-	ft_putnbr_fd(data->x, 1);
-	ft_putchar_fd('\n', 1);
 	return (data);
 }
 
@@ -69,7 +63,7 @@ t_mlx	*error_check(int argc, char **argv)
 	int		fd;
 	t_mlx	*data;
 
-	if (argc < 2)
+	if (argc != 2)
 		return (NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
