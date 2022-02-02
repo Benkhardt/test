@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+         #
+#    By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 12:04:48 by dbenkhar          #+#    #+#              #
-#    Updated: 2022/01/30 14:42:37 by dbenkhar         ###   ########.fr        #
+#    Updated: 2022/02/02 21:54:13 by dbenkhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 
 SRC=	so_long.c init_error_check.c world_init.c \
-		list_utils.c free_data.c \
+		list_utils.c free_data.c check_validmap.c\
 
 LIBDIR= ./libft
 LIBFT= libft/libft.a

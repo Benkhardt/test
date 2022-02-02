@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init_error_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:06:26 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 15:52:11 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/02 22:11:42 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_all	*init_types(t_all *data)
+t_all	*init_types(void)
 {
+	t_all	*data;
+	
 	data = malloc(sizeof(t_all));
 	if (data == NULL)
 		return (NULL);
@@ -24,18 +26,17 @@ t_all	*init_types(t_all *data)
 		return (NULL);
 	}
 	data->top_list = NULL;
+	data->bot_list = NULL;
 	return (data);
 }
 
 static int	check_y(char *build, char *allowed)
 {
 	int		i;
-	size_t	n;
 
 	i = -1;
-	n = ft_strlen(allowed);
-	while (build[++i] != '\0' && build[i] != '\n')
-		if (ft_memchr(allowed, (int)build[i], n) == NULL)
+	while (build[++i] != '\n')
+		if (ft_memchr(allowed, (int)build[i], 5) == NULL)
 			return (1);
 	return (0);
 }
@@ -73,17 +74,19 @@ static t_all	*check_map(t_all *data, int fd)
 //	Return:
 //	Returns t_mlx *data with size of map.
 //	NULL if any error appears.
-t_all	*init_error_check(char **argv)
+t_all	*error_check(char **argv, t_all *data)
 {
 	int		fd;
-	t_all	*data;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	data = NULL;
-	data = init_types(data);
+	// data = NULL;
+	// data = init_types(data);
 	data = check_map(data, fd);
+	if (data == NULL)
+		return (NULL);
+	data = check_validmap(data);
 	if (data == NULL)
 		return (NULL);
 	return (data);

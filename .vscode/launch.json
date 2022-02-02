@@ -8,9 +8,9 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "/Users/dennisbenkhardt/Documents/test/so_long",
+			"program": "/Users/dennisbenkhardt/Documents/s_l_dev/so_long",
 			"args": ["maps/map1.ber"],
-			"cwd": "/Users/dennisbenkhardt/Documents/test/"
+			"cwd": "/Users/dennisbenkhardt/Documents/s_l_dev/"
 		}
 	]
 }

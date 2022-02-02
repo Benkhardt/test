@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:21:34 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:31:53 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/02 22:24:29 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	free_list(t_map *top_list)
 void	free_all(t_all *data)
 {
 	free_list(data->top_list);
-	free(data->mlx);
-	free(data);
+	if (data->mlx != NULL)
+		free(data->mlx);
+	if (data != NULL)
+		free(data);
 }
