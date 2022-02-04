@@ -12,19 +12,6 @@
 
 #include "so_long.h"
 
-static t_check	*init_check(void)
-{
-	t_check	*flags;
-
-	flags = malloc(sizeof(t_check));
-	if (flags == NULL)
-		return (NULL);
-	flags->c = 0;
-	flags->e = 0;
-	flags->p = 0;
-	return (flags);
-}
-
 static t_check	*check_line(char *line, t_check *flags)
 {
 	unsigned int	i;
@@ -52,13 +39,13 @@ static t_check	*check_line(char *line, t_check *flags)
 //	Meant to check only for first and last line of map.
 //	Return:
 //	Returning 0 if valid 1 if not
-static int	check_easy(t_map *bot)
+static int	check_easy(t_gnl *bot)
 {
 	int		i;
 	char	*conv;
 
 	i = -1;
-	conv = (char *)bot->line_x;
+	conv = (char *)bot->build;
 	while (conv[++i] != '\n')
 		if (ft_memchr("1", conv[i], 1) == NULL)
 			return (1);
@@ -73,16 +60,13 @@ t_all	*check_validmap(t_all *data)
 {
 	t_map	*temp;
 
-	data->flags = init_check();
-	if (data->flags == NULL)
-		return (NULL);
-		data->bot_list = find_last_elem(data->top_list);
-	if (check_easy(data->bot_list) || check_easy(data->top_list))
+	data->bot_list = find_last_elem(data->top_list);
+	if (check_easy(data->bot_list->line_x) || check_easy(data->top_list->line_x))
 		return (NULL);
 	temp = data->bot_list->top;
 	while (temp->top != NULL)
 	{
-		data->flags = check_line((char *)temp->line_x, data->flags);
+		data->flags = check_line((char *)temp->line_x->build, data->flags);
 		if (data->flags == NULL)
 			return (NULL);
 		temp = temp->top;

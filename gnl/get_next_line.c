@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../so_long.h"
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -118,9 +119,10 @@ char	*line_to_rtn(char *store)
 	return (rtn);
 }
 
-char	*get_next_line(int fd)
+t_gnl	*get_next_line(int fd)
 {
-	char		*rtn;
+	t_gnl		*rtn;
+	char		*line;
 	static char	*store;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -128,7 +130,15 @@ char	*get_next_line(int fd)
 	store = read_from_fd(fd, store);
 	if (store == NULL)
 		return (NULL);
-	rtn = line_to_rtn(store);
+	rtn = malloc(sizeof(t_gnl));
+	if (rtn == NULL)
+	{
+		free(store);
+		return (NULL);
+	}
+	line = line_to_rtn(store);
 	store = next_run(store);
+	rtn->build = line;
+	rtn->stat = store;
 	return (rtn);
 }

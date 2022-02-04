@@ -17,7 +17,8 @@
 #  define BUFFER_SIZE 20
 # endif
 
-char	*get_next_line(int fd);
+# include "../so_long.h"
+
 int		gnl_strlen(char *str);
 char	*gnl_strchr(char *str, int c);
 char	*gnl_strjoin(char *s1, char *s2);

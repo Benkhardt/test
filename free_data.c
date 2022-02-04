@@ -19,6 +19,7 @@ void	free_list(t_map *top_list)
 	temp = top_list->bot;
 	while (top_list != NULL)
 	{
+		free(top_list->line_x->build);
 		free(top_list->line_x);
 		free(top_list);
 		top_list = temp;
@@ -32,6 +33,10 @@ void	free_all(t_all *data)
 	free_list(data->top_list);
 	if (data->mlx != NULL)
 		free(data->mlx);
+	if (data->flags != NULL)
+		free(data->flags);
+	if (data->gnl != NULL)
+		free(data->gnl);
 	if (data != NULL)
 		free(data);
 }

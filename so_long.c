@@ -20,13 +20,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error1\n", 1);
 		return (-1);
 	}
 	data = init_types();
 	if (data == NULL)
 	{
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error2\n", 1);
 		return (-1);
 	}
 	store = data;
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	if (data == NULL)
 	{
 		free_all(store);
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Error3\n", 1);
 		return (-1);
 	}
 	// data->ptr = mlx_init();

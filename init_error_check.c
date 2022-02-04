@@ -12,6 +12,19 @@
 
 #include "so_long.h"
 
+static t_check	*init_check(void)
+{
+	t_check	*flags;
+
+	flags = malloc(sizeof(t_check));
+	if (flags == NULL)
+		return (NULL);
+	flags->c = 0;
+	flags->e = 0;
+	flags->p = 0;
+	return (flags);
+}
+
 t_all	*init_types(void)
 {
 	t_all	*data;
@@ -22,6 +35,13 @@ t_all	*init_types(void)
 	data->mlx = malloc(sizeof(t_mlx));
 	if (data->mlx == NULL)
 	{
+		free(data);
+		return (NULL);
+	}
+	data->flags = init_check();
+	if (data->flags == NULL)
+	{
+		free(data->mlx);
 		free(data);
 		return (NULL);
 	}
@@ -43,26 +63,22 @@ static int	check_y(char *build, char *allowed)
 
 static t_all	*check_map(t_all *data, int fd)
 {
-	char	*build;
-
 	data->mlx->y = 0;
-	build = get_next_line(fd);
-	if (build == NULL)
-	{
-		free(data);
+	data->gnl = get_next_line(fd);
+	if (data->gnl->build == NULL)
 		return (NULL);
-	}
-	data->mlx->x = ft_strlen(build);
-	while (build != NULL)
+	data->mlx->x = ft_strlen(data->gnl->build);
+	while (data->gnl->build != NULL)
 	{
-		if (data->mlx->x != (int)ft_strlen(build) || check_y(build, "01PCE"))
+		if (data->mlx->x != (int)ft_strlen((char *)data->gnl->build) || check_y((char *)data->gnl->build, "01PCE"))
 		{
-			free(data);
-			free(build);
+			free(data->gnl->build);
+			free(data->gnl->stat);
+			free(data->gnl);
 			return (NULL);
-		}
-		data->top_list = create_elem_ontop(build, data->top_list, data->mlx->y);
-		build = get_next_line(fd);
+		}	
+		data->top_list = create_elem_ontop(data->gnl, data->top_list, data->mlx->y);
+		data->gnl = get_next_line(fd);
 		data->mlx->y++;
 	}
 	return (data);
@@ -81,8 +97,6 @@ t_all	*error_check(char **argv, t_all *data)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	// data = NULL;
-	// data = init_types(data);
 	data = check_map(data, fd);
 	if (data == NULL)
 		return (NULL);

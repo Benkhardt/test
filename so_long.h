@@ -41,17 +41,24 @@ typedef struct s_all{
 	struct s_map	*bot_list;
 	struct s_check	*flags;
 	struct s_mlx	*mlx;
+	struct s_gnl	*gnl;
 	// struct s_player	*player;
 }	t_all;
 
 // map data elements (columns containing each row from gnl)
 typedef struct	s_map{
 	struct s_map	*top;
-	void			*line_x;
+	struct s_gnl	*line_x;
 	int				y;
 	int				valid;
 	struct s_map	*bot;
 }	t_map;
+
+// gnl pointers
+typedef struct	s_gnl{
+	void	*build;
+	void	*stat;
+}	t_gnl;
 
 // mlx data
 typedef struct	s_mlx{
@@ -77,6 +84,8 @@ typedef struct	s_player{
 // rototypes
 
 t_all	*error_check(char **argv, t_all *data);
+
+t_gnl	*get_next_line(int fd);
 
 t_all	*world_init(t_all *data);
 

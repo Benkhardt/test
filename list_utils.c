@@ -54,7 +54,7 @@ void	printlist(t_map *bot)
 {
 	while (bot != NULL)
 	{
-		ft_putstr_fd((char *)bot->line_x, 1);
+		ft_putstr_fd((char *)bot->line_x->build, 1);
 		ft_putnbr_fd(bot->y, 1);
 		ft_putchar_fd('\n', 1);
 		bot = bot->top;
