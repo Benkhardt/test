@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:21:34 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/02 22:24:29 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/04 14:49:42 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	free_list(t_map *top_list)
 {
 	t_map	*temp;
 
+	if (top_list == NULL)
+		return ;
 	temp = top_list->bot;
 	while (top_list != NULL)
 	{
