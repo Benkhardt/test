@@ -37,8 +37,8 @@ void	free_all(t_all *data)
 		free(data->mlx);
 	if (data->flags != NULL)
 		free(data->flags);
-	if (data->gnl != NULL)
-		free(data->gnl);
+	// if (data->gnl != NULL)
+	// 	free(data->gnl);
 	if (data != NULL)
 		free(data);
 }

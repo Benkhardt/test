@@ -81,6 +81,7 @@ static t_all	*check_map(t_all *data, int fd)
 		data->gnl = get_next_line(fd);
 		data->mlx->y++;
 	}
+	free(data->gnl);
 	return (data);
 }
 
