@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:55:40 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/02 22:32:08 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:21:53 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_all		*data;
-	t_all		*store;
+	t_all	*data;
+	t_all	*store;
 	// t_player	player;
 
 	if (argc != 2)
@@ -30,7 +30,13 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	store = data;
-	data = error_check(argv, data);
+	data = read_map(data, argv[1]);
+	if (data == NULL)
+	{
+		free_all(store);
+		ft_putstr_fd("Error4\n", 1);
+	}
+	data = error_check(data);
 	if (data == NULL)
 	{
 		free_all(store);

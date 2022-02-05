@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_validmap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:53:57 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/02 22:34:42 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/05 21:33:56 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_all	*check_validmap(t_all *data)
 {
 	t_map	*temp;
 
-	data->bot_list = find_last_elem(data->top_list);
+	// data->bot_list = find_last_elem(data->top_list);
 	if (check_easy(data->bot_list->line_x) || check_easy(data->top_list->line_x))
 		return (NULL);
 	temp = data->bot_list->top;

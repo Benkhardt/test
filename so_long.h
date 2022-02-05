@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/02 21:24:39 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:01:42 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct	s_player{
 
 // rototypes
 
-t_all	*error_check(char **argv, t_all *data);
+t_all	*error_check(t_all *data);
 
 t_gnl	*get_next_line(int fd);
 
@@ -102,5 +102,7 @@ void	printlist(t_map *bot);
 t_map	*find_last_elem(t_map *top);
 
 t_all	*check_validmap(t_all *data);
+
+t_all	*read_map(t_all *data, char *argv);
 
 #endif
