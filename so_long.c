@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:55:40 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/05 22:21:53 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/06 06:33:06 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	{
 		free_all(store);
 		ft_putstr_fd("Error4\n", 1);
+		return (-1);
 	}
 	data = error_check(data);
 	if (data == NULL)
