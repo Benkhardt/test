@@ -18,7 +18,10 @@ static t_check	*check_line(char *line, t_check *flags)
 
 	i = 0;
 	if (line[0] != '1')
+	{
+		free(flags);
 		return (NULL);
+	}
 	while (line[++i] != '\n')
 	{
 		if (line[i] == 'P')
@@ -28,10 +31,16 @@ static t_check	*check_line(char *line, t_check *flags)
 		else if (line[i] == 'E')
 			flags->e++;
 		else if (line[i] != '1' && line[i] != '0')
+		{
+			free(flags);
 			return (NULL);
+		}
 	}
 	if (line[i - 1] != '1')
-			return (NULL);
+	{
+		free(flags);
+		return (NULL);
+	}
 	return (flags);
 }
 
@@ -64,6 +73,8 @@ t_all	*check_validmap(t_all *data)
 	if (check_easy(data->bot_list->line_x) || check_easy(data->top_list->line_x))
 		return (NULL);
 	temp = data->bot_list->top;
+	if (temp == NULL)
+		return (NULL);
 	while (temp->top != NULL)
 	{
 		data->flags = check_line((char *)temp->line_x->build, data->flags);
