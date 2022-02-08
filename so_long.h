@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/05 22:01:42 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:51:04 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,58 @@
 //typedefs
 
 // all
-typedef struct s_all{
+typedef struct	s_all{
 	struct s_map	*top_list;
 	struct s_map	*bot_list;
 	struct s_check	*flags;
 	struct s_mlx	*mlx;
 	struct s_gnl	*gnl;
+	struct s_data	*pic;
 	// struct s_player	*player;
 }	t_all;
+
+/*
+** texture data structure to pre load images
+*/
+typedef struct	s_textures{
+	struct s_wall	*wall;
+	struct s_player	*player;
+	struct s_cons	*cons;
+	struct s_zero	*zero;
+	struct s_exit	*exit;
+}	t_textures;
+
+// 
+typedef struct	s_wall{
+	void	*img;
+	int		width;
+	int		height;
+}	t_wall;
+
+typedef struct	s_cons{
+	void	*img;
+	int		width;
+	int		height;
+}	t_cons;
+
+typedef struct	s_zero{
+	void	*img;
+	int		width;
+	int		height;
+}	t_zero;
+
+typedef struct	s_exit{
+	void	*img;
+	int		width;
+	int		height;
+}	t_exit;
+
+typedef struct	s_wall{
+	void	*img;
+	int		width;
+	int		height;
+}	t_wall;
+
 
 // map data elements (columns containing each row from gnl)
 typedef struct	s_map{
@@ -74,12 +118,6 @@ typedef struct	s_check{
 	unsigned int	e; // has to be 1
 	// unsigned int	zero; // has to be minimum 1
 }	t_check;
-
-// player data
-typedef struct	s_player{
-	int	pos_x;
-	int	pos_y;
-}	t_player;
 
 // rototypes
 

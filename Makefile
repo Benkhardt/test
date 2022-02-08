@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+         #
+#    By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 12:04:48 by dbenkhar          #+#    #+#              #
-#    Updated: 2022/02/05 22:13:19 by dbenkhar         ###   ########.fr        #
+#    Updated: 2022/02/06 14:53:11 by dbenkhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,11 @@ $(NAME):
 	make -C $(MLXDIR)
 	$(CC) $(SRC) $(GNL) $(LIBFT) $(CFLAGS) -o $(NAME)
 
+test:
+	make -C $(LIBDIR)
+	make -C $(MLXDIR)
+	$(CC) test.c $(GNL) $(LIBFT) $(CFLAGS) -o test
+
 clean:
 	@make clean -C $(LIBDIR)
 
@@ -53,6 +58,7 @@ fclean:
 	@make clean -C $(MLXDIR)
 	@rm -rf *.dSYM
 	@rm -f $(NAME)
+	@rm -f test
 
 re: fclean all
 
