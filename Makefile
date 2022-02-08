@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+         #
+#    By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 12:04:48 by dbenkhar          #+#    #+#              #
-#    Updated: 2022/02/06 14:53:11 by dbenkhar         ###   ########.fr        #
+#    Updated: 2022/02/08 23:52:44 by dbenkhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME= so_long
 
 SRC=	so_long.c error_check.c world_init.c \
 		list_utils.c free_data.c check_validmap.c \
-		read_map.c init_types.c\
+		read_map.c init_types.c draw.c build_map.c\
 
 LIBDIR= ./libft
 LIBFT= libft/libft.a
@@ -48,7 +48,7 @@ $(NAME):
 test:
 	make -C $(LIBDIR)
 	make -C $(MLXDIR)
-	$(CC) test.c $(GNL) $(LIBFT) $(CFLAGS) -o test
+	$(CC) test.c init_types.c $(GNL) $(LIBFT) $(CFLAGS) -o test
 
 clean:
 	@make clean -C $(LIBDIR)

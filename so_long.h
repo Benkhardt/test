@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/08 13:51:04 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/08 23:53:25 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@
 
 // all
 typedef struct	s_all{
-	struct s_map	*top_list;
-	struct s_map	*bot_list;
-	struct s_check	*flags;
-	struct s_mlx	*mlx;
-	struct s_gnl	*gnl;
-	struct s_data	*pic;
-	// struct s_player	*player;
+	struct s_map		*top_list;
+	struct s_map		*bot_list;
+	struct s_check		*flags;
+	struct s_mlx		*mlx;
+	struct s_gnl		*gnl;
+	struct s_data		*pic;
+	struct s_textures	*textures;
+	struct s_coord		*coord;
 }	t_all;
 
 /*
@@ -57,37 +58,46 @@ typedef struct	s_textures{
 	struct s_exit	*exit;
 }	t_textures;
 
-// 
+// save wall texture
 typedef struct	s_wall{
 	void	*img;
 	int		width;
 	int		height;
 }	t_wall;
 
+// save consumables texture
 typedef struct	s_cons{
 	void	*img;
 	int		width;
 	int		height;
 }	t_cons;
 
+// save zero texture(fields to move through)
 typedef struct	s_zero{
 	void	*img;
 	int		width;
 	int		height;
 }	t_zero;
 
+// save exit texture
 typedef struct	s_exit{
 	void	*img;
 	int		width;
 	int		height;
 }	t_exit;
 
-typedef struct	s_wall{
+// save player texture
+typedef struct s_player{
 	void	*img;
 	int		width;
 	int		height;
-}	t_wall;
+}	t_player;
 
+// struct to build map
+typedef struct	s_coord{
+	int	x;
+	int	y;
+}	t_coord;
 
 // map data elements (columns containing each row from gnl)
 typedef struct	s_map{
@@ -142,5 +152,17 @@ t_map	*find_last_elem(t_map *top);
 t_all	*check_validmap(t_all *data);
 
 t_all	*read_map(t_all *data, char *argv);
+
+t_all	*build_map(t_all *data);
+
+int		draw_wall(t_all *data, int x, int y);
+
+int		draw_field(t_all *data, int x, int y);
+
+int		draw_exit(t_all *data, int x, int y);
+
+int		draw_player(t_all *data, int x, int y);
+
+int		draw_cons(t_all *data, int x, int y);
 
 #endif

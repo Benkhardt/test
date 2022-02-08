@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:04:19 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/07 13:58:54 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/08 21:26:36 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 
 int main(void)
 {
-	void	*mlx_ptr;
-	void	*img;
-	void	*mlx_win;
-	int		img_width;
-	int		img_height;
+	t_all		*data;
 
-	mlx_ptr = mlx_init();
-	if (mlx_ptr == NULL)
+	data = init_types();
+	if (data == NULL)
 		return (-1);
-	img = mlx_xpm_file_to_image(mlx_ptr, "./img/wall.xpm", &img_width, &img_height);
-	if (img == NULL)
+	data->mlx->ptr = mlx_init();
+	if (data->mlx->ptr == NULL)
+		return (-1);
+	// Wall
+	data->textures->wall->img = mlx_xpm_file_to_image(data->mlx->ptr, "./img/wall.xpm", &data->textures->wall->width, &data->textures->wall->height);
+	if (data->textures->wall->img == NULL)
 	{
-		ft_putstr_fd("Error1\n", 1);
+		ft_putstr_fd("Error Wall\n", 1);
 		return (-1);
 	}
-	mlx_win = mlx_new_window(mlx_ptr, 640, 480, "test");
-	if (mlx_win == NULL)
+	data->mlx->win = mlx_new_window(data->mlx->ptr, 640, 480, "test");
+	if (data->mlx->win == NULL)
+	{
+		ft_putstr_fd("Error window\n", 1);
 		return (-1);
-	mlx_put_image_to_window(mlx_ptr, mlx_win, img, 0, 0);
-	mlx_loop(mlx_ptr);
+	}
+	// put image to window
+	mlx_put_image_to_window(data->mlx->ptr, data->mlx->win, data->textures->wall->img, 0, 0);
+	mlx_loop(data->mlx->ptr);
 }

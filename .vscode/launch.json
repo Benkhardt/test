@@ -8,9 +8,9 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "/Users/dennisbenkhardt/Documents/so_long_dev/test",
+			"program": "/home/db/so_long_dev/test",
 			"args": [],
-			"cwd": "/Users/dennisbenkhardt/Documents/so_long_dev/"
+			"cwd": "/home/db/so_long_dev/"
 		}
 	]
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   world_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42>             +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:25:57 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/01/30 14:17:56 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/08 22:34:10 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ t_all	*world_init(t_all *data)
 		free(data->mlx->win);
 		return (NULL);
 	}
-	// data = build_map(data);
+	data = build_map(data);
 	return (data);
 }
