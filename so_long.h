@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/08 23:53:25 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/09 08:26:29 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,18 @@ t_all	*check_validmap(t_all *data);
 t_all	*read_map(t_all *data, char *argv);
 
 t_all	*build_map(t_all *data);
+
+t_all	*load_tex(t_all *data);
+
+t_all	*load_wall(t_all *data);
+
+t_all	*load_field(t_all *data);
+
+t_all	*load_consum(t_all *data);
+
+t_all	*load_exit(t_all *data);
+
+t_all	*load_player(t_all *data);
 
 int		draw_wall(t_all *data, int x, int y);
 

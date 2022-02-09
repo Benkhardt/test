@@ -8,8 +8,8 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "/home/db/so_long_dev/test",
-			"args": [],
+			"program": "/home/db/so_long_dev/so_long",
+			"args": ["maps/map1.ber"],
 			"cwd": "/home/db/so_long_dev/"
 		}
 	]

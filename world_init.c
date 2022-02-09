@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:25:57 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/08 22:34:10 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/09 08:26:51 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_all	*world_init(t_all *data)
 		free(data->mlx->win);
 		return (NULL);
 	}
+	data = load_tex(data);
 	data = build_map(data);
 	return (data);
 }

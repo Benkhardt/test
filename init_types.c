@@ -6,16 +6,20 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 22:00:06 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/09 00:25:12 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/09 08:27:17 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_all	*load_wall(t_wall *wall, t_all *data)
+t_all	*load_tex(t_all *data)
 {
-
-	wall->img = mlx_xpm_file_to_image(mlx, "./img/wall.xpm", &textures->wall->width, &textures->wall->height);
+	data = load_wall(data);
+	data = load_field(data);
+	data = load_consum(data);
+	data = load_player(data);
+	data = load_exit(data);
+	return (data);
 }
 
 static t_check	*init_check(void)
@@ -77,8 +81,5 @@ t_all	*init_types(void)
 		return (NULL);
 	data->top_list = NULL;
 	data->bot_list = NULL;
-	data->textures = load_tex(data->textures);
-	if (data->textures == NULL)
-		return (NULL);
 	return (data);
 }
