@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: dbenkhar <dbenkhar@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:55:40 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/08 23:50:07 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/13 11:08:46 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 1);
 		return (-1);
 	}
+	key_events(data);
 	mlx_loop(data->mlx->ptr);
 }
