@@ -6,7 +6,7 @@
 #    By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 12:04:48 by dbenkhar          #+#    #+#              #
-#    Updated: 2022/02/09 08:18:56 by dbenkhar         ###   ########.fr        #
+#    Updated: 2022/02/13 23:50:47 by dbenkhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME= so_long
 SRC=	so_long.c error_check.c world_init.c \
 		list_utils.c free_data.c check_validmap.c \
 		read_map.c init_types.c draw.c build_map.c \
-		load.c \
+		load.c key_events.c \
 
 LIBDIR= ./libft
 LIBFT= libft/libft.a
