@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 12:27:27 by dbenkhar          #+#    #+#             */
-/*   Updated: 2022/02/13 23:53:36 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2022/02/14 01:03:31 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 
 // define keyboard
 
-// # define K_ESC 
-# define K_A 0
-# define K_D 2
-# define K_S 1
-# define K_W 13
+# define K_ESC 65307
+# define K_A 97
+# define K_D 100
+# define K_S 115
+# define K_W 119
 
 //typedefs
 
@@ -149,6 +149,16 @@ void	free_list(t_map *top_list);
 void	printlist(t_map *bot);
 
 void	key_events(t_all *data);
+
+t_all	*move_up(t_all *data);
+
+t_all	*move_down(t_all *data);
+
+t_all	*move_right(t_all *data);
+
+t_all	*move_left(t_all *data);
+
+int		move_check(t_all *data);
 
 t_map	*find_last_elem(t_map *top);
 
